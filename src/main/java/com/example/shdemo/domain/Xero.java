@@ -10,6 +10,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 		@NamedQuery(name = "xero.unserviced", query = "SELECT x FROM Xero x WHERE x.serviced = false")
+		//@NamedQuery(name = "xero.needservice", query = "SELECT x FORM Xero x WHERE x.sheets < 10")
 })
 public class Xero {
 
