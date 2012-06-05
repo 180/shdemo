@@ -9,8 +9,22 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-		@NamedQuery(name = "xero.unserviced", query = "SELECT x FROM Xero x WHERE x.serviced = false")
-		//@NamedQuery(name = "xero.needservice", query = "SELECT x FORM Xero x WHERE x.sheets < 10")
+		@NamedQuery(name = "xero.unserviced", query = "SELECT x FROM Xero x WHERE x.serviced = false"),
+		@NamedQuery(name = "xero.needService", query = "SELECT x FROM Xero x WHERE x.sheets < :sheets")
+		
+//		@NamedQueries(  {
+//			//wszystkie osoby
+//		@NamedQuery(name = "osoba.getAll", query = "from Osoba"),
+//
+//			// Osoby z danym imieniem
+//		@NamedQuery(name = "osoba.poImieniu", query = "from Osoba o where o.imie=:"imie"),
+//
+//			//Osoby ktore posiadaja jakies samochody
+//		@NamedQuery(name = "osoba.zmotoryzowani", query = "select o from Osoba o JOIN o.samochody s"),
+//
+//			// Osoby ktore posiadaja samochody o danej marce (make (pol. marka) jest parametrem)
+//		@NamedQuery(name = "osoba.marka", query = "select o from Osoba o JOIN o.samochody s WHERE s.marka=:make"),
+//		})
 })
 public class Xero {
 

@@ -19,6 +19,7 @@ public interface ServicingManager {
 	void disposeXero(Service service, Xero xero);
 	Xero findXeroById(Long id);
 	void updateXero(Xero x);
+	Xero needService(int sheets);
 
 	List<Xero> getOwnedXeros(Service service);
 	void serviceXero(Long serviceId, Long xeroId);

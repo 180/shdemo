@@ -33,7 +33,8 @@ public class ServicingManagerTest {
 	private final String TYPE1 = "Color";
 	private final String TYPE2 = "Black-White";
 	private final Integer SHEETS1 = 100;
-	private final Integer SHEETS2 = 2;
+	private final Integer SHEETS2 = 210;
+	private final Integer SHEETS3 = 3;
 	
 	
 	private final String NAME1 = "Xero Service";
@@ -147,7 +148,7 @@ public class ServicingManagerTest {
 	
 
 	@Test
-	public void checkUpdate() {
+	public void updateCheck() {
 		Xero x1 = new Xero();
 		x1.setMake(MAKE1);
 		x1.setModel(MODEL1);
@@ -174,7 +175,7 @@ public class ServicingManagerTest {
 	
 	
 	@Test
-	public void checkDelete() {
+	public void deleteCheck() {
 		Xero x1 = new Xero();
 		x1.setMake(MAKE1);
 		x1.setModel(MODEL1);
@@ -189,4 +190,27 @@ public class ServicingManagerTest {
 		
 	}
 
+	@Test
+	public void needServiceCheck() {
+		Xero x1 = new Xero();
+		x1.setMake(MAKE1);
+		x1.setModel(MODEL1);
+		x1.setType(TYPE1);
+		x1.setSheets(SHEETS3);
+
+		Long x1Id = servicingManager.addNewXero(x1);
+		
+		Xero x2 = new Xero();
+		x2.setMake(MAKE2);
+		x2.setModel(MODEL2);
+		x2.setType(TYPE2);
+		x2.setSheets(SHEETS2);
+
+		Long x2Id = servicingManager.addNewXero(x2);
+		
+
+		Xero retrievedXero = servicingManager.needService(10);
+		assertEquals(MAKE1, retrievedXero.getMake());
+	}
+	
 }

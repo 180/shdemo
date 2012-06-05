@@ -133,4 +133,7 @@ public class ServicingMangerHibernateImpl implements ServicingManager {
 		x2.setSheets(x.getSheets());
 	}
 
+	public Xero needService(int sheets) {
+		return (Xero) sessionFactory.getCurrentSession().getNamedQuery("xero.needService").setInteger("sheets", sheets).uniqueResult();
+		}
 }
